@@ -1,15 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import _Layout from "./components/_Layout/_Layout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TaskPagination from "./components/TaskPagination";
+import Home from "./components/Home";
+import PrimeDividers from "./components/PrimeDividers";
+import ValidateBrackets from "./components/ValidateBrackets";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<_Layout />}>
+          <Route index element={<Home />}></Route>
+          <Route path="/task-pagination" element={<TaskPagination />}></Route>
+          <Route path="/prime-dividers" element={<PrimeDividers />}></Route>
+          <Route
+            path="/validate-brackets"
+            element={<ValidateBrackets />}
+          ></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
