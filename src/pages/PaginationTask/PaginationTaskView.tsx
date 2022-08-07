@@ -1,12 +1,13 @@
-import useGetData from "../../utils/Data/useGetData";
-import People from "../../utils/Model";
+import People from "../../utils/Model/PeopleModel";
 
-function TaskPagination() {
-  const { peopleList, loading } = useGetData();
+type Props = {
+  peopleList: People[];
+  loading: boolean;
+};
 
+function PaginationTaskView({ peopleList, loading }: Props) {
   return (
     <div className="text-center my-4">
-      <h1>Pagination Task Component:</h1>
       {loading ? (
         <div className="w-full">
           <div className="text-center py-12">
@@ -61,4 +62,4 @@ function TaskPagination() {
   );
 }
 
-export default TaskPagination;
+export default PaginationTaskView;

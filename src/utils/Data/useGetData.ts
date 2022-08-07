@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import People from "../Model";
+import People from "../Model/PeopleModel";
 
 // curl --request GET
 //      --header 'content-type: application/json'

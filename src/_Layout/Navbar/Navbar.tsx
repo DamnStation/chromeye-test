@@ -5,7 +5,7 @@ function Navbar() {
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <Link to={"/"}>
-            <a className="btn btn-ghost normal-case text-xl">Chromeye</a>
+            <a className="btn btn-ghost normal-case text-xl">Chromeye Test</a>
           </Link>
         </div>
         <div className="flex-none">

@@ -1,9 +1,9 @@
-import Navbar from "./Navbar";
+import Navbar from "./Navbar/Navbar";
 
 type Props = {
   children?: JSX.Element | JSX.Element[];
 };
-function _Layout({ children }: Props) {
+function Layout({ children }: Props) {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="flex flex-col items-center justify-center">
@@ -21,4 +21,4 @@ function _Layout({ children }: Props) {
   );
 }
 
-export default _Layout;
+export default Layout;

@@ -2,12 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import _Layout from "./components/_Layout/_Layout";
+import Layout from "./_Layout/Layout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import TaskPagination from "./components/TaskPagination";
-import Home from "./components/Home";
-import PrimeDividers from "./components/PrimeDividers";
-import ValidateBrackets from "./components/ValidateBrackets";
+import PaginationTask from "./pages/PaginationTask/IndexPaginationTask";
+import Home from "./pages/Home/Home";
+import PrimeDividers from "./pages/PrimeDividers/PrimeDividers";
+import ValidateBrackets from "./pages/ValidateBrackets/ValidateBrackets";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,10 +17,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<_Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />}></Route>
-          <Route path="/task-pagination" element={<TaskPagination />}></Route>
-          <Route path="/prime-dividers" element={<PrimeDividers />}></Route>
+          <Route path="task-pagination" element={<PaginationTask />}></Route>
+          <Route path="prime-dividers" element={<PrimeDividers />}></Route>
+          <Route path="*" element={<PageNotFound />}></Route>
           <Route
             path="/validate-brackets"
             element={<ValidateBrackets />}
