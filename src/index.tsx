@@ -4,7 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Layout from "./_Layout/Layout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PaginationTask from "./pages/PaginationTask/IndexPaginationTask";
+import PaginationTask from "./pages/PaginationTask/PaginationTask";
 import Home from "./pages/Home/Home";
 import PrimeDividers from "./pages/PrimeDividers/PrimeDividers";
 import ValidateBrackets from "./pages/ValidateBrackets/ValidateBrackets";
