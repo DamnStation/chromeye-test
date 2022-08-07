@@ -1,5 +1,10 @@
+import Hero from "../../components/Hero/Hero";
 function Home() {
-  return <div>Home Component</div>;
+  return (
+    <div className="flex flex-col w-full">
+      <Hero />
+    </div>
+  );
 }
 
 export default Home;
