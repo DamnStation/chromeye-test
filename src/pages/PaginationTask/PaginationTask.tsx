@@ -97,23 +97,23 @@ function PaginationTask() {
                     <th>Started at</th>
                   </tr>
                 </thead>
-                {currentPeople
-                  .filter((peopleList) => {
-                    if (searchTerm === "") {
-                      return peopleList;
-                    } else if (
-                      peopleList.firstName
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase()) ||
-                      peopleList.lastName
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase())
-                    ) {
-                      return peopleList;
-                    }
-                  })
-                  .map((peopleList: People) => (
-                    <tbody>
+                <tbody>
+                  {currentPeople
+                    .filter((peopleList) => {
+                      if (searchTerm === "") {
+                        return peopleList;
+                      } else if (
+                        peopleList.firstName
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) ||
+                        peopleList.lastName
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase())
+                      ) {
+                        return peopleList;
+                      }
+                    })
+                    .map((peopleList: People) => (
                       <tr key={peopleList.id}>
                         <th>
                           <img
@@ -135,8 +135,8 @@ function PaginationTask() {
                         <th>{peopleList.company.department}</th>
                         <th>{peopleList.company.startDate}</th>
                       </tr>
-                    </tbody>
-                  ))}
+                    ))}
+                </tbody>
               </table>
             </div>
           </div>

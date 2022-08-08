@@ -1,23 +1,65 @@
-// import { useState } from "react";
-
 function ValidateBrackets() {
-  // enum BracketsTypeBracket {
-  //   "(",
-  //   ")",
+  // enum BracketsOpen {
+  //   Big = "{",
+  //   Medium = "[",
+  //   Small = "(",
   // }
-  // enum BracketsTypeSquare {
-  //   "[",
-  //   "]",
+  // const enum BracketsClosed {
+  //   Big = "}",
+  //   Medium = "]",
+  //   Small = ")",
   // }
-  // enum BracketsTypeCurly {
-  //   "{",
-  //   "}",
-  // }
-  // const [inputString, setInputString] = useState("");
-
-  // const validateBrackets = (str: string) => {
-  //   return str;
-  // };
+  const validateBrackets = (str: string): boolean => {
+    let brackets: number[] = [];
+    let bracketsReversed: number[] = [];
+    let result: boolean = true;
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === "(") {
+        brackets.push(1);
+      } else if (str[i] === "[") {
+        brackets.push(2);
+      } else if (str[i] === "{") {
+        brackets.push(3);
+      } else if (str[i] === ")") {
+        bracketsReversed.push(1);
+      } else if (str[i] === "]") {
+        bracketsReversed.push(2);
+      } else if (str[i] === "}") {
+        bracketsReversed.push(3);
+      }
+      // else if (str[i] === ")" || str[i] === "]" || str[i] === "}") {
+      //   bracketsReversed.push(str[i]);
+      // }
+    }
+    // for (let j = 0; j < brackets.length; j++) {
+    //   if (brackets[j] === "(" && bracketsReversed[j] === ")") {
+    //     brackets[j].replaceAll("(", BracketsOpen.Small);
+    //     bracketsReversed[j].replaceAll(")", BracketsClosed.Small);
+    //   } else if (brackets[j] === "[" && bracketsReversed[j] === "]") {
+    //     brackets[j].replaceAll("[", BracketsOpen.Medium);
+    //     bracketsReversed[j].replaceAll("]", BracketsClosed.Medium);
+    //   } else if (brackets[j] === "{" && bracketsReversed[j] === "}") {
+    //     brackets[j].replaceAll("{", BracketsOpen.Big);
+    //     bracketsReversed[j].replaceAll("}", BracketsClosed.Big);
+    //   }
+    // }
+    for (let k = 0; k < brackets.length; k++) {
+      if (brackets[k] === bracketsReversed[k]) {
+        return (result = true);
+      } else {
+        return (result = false);
+      }
+    }
+    // //array check
+    // const myStringArray: string[] = brackets;
+    // const arrayLength = myStringArray.length;
+    // for (let i = 0; i < arrayLength; i++) {
+    //   console.log(myStringArray[i]);
+    // }
+    // console.log(brackets);
+    // console.log(bracketsReversed);
+    return result;
+  };
 
   return (
     <div className="text-start m-4">
@@ -32,14 +74,14 @@ function ValidateBrackets() {
       <p className="m-4  text-base">
         Brackets can be:
         <br />
-        <></> Big brackets: {}
+        <></> Big brackets: {`{}`}
         <br />
         Medium brackets: []
         <br />
         Small brackets: ()
       </p>
 
-      <p className="m-4  text-base">
+      <div className="m-4  text-base">
         Brackets have order: <br />
         <p className="text-base italic">
           You cannot have big or medium brackets inside of small brackets <br />
@@ -59,9 +101,25 @@ function ValidateBrackets() {
           opening bracket is small <br />
           {`{aaa[bbb(ccc)ddd]eee} –`} true
         </p>
-      </p>
+      </div>
 
-      <div className="bg-slate-700"></div>
+      {/* Examples:
+      {asd} – true
+      {[(asd)]} – true
+      [{asd}] – false // order is not right
+      [(asd]) – false // there is closing medium bracket, but the last opening bracket is small
+      {aaa[bbb(ccc)ddd]eee} – true */}
+      <div className="bg-slate-700">
+        <div className="m-4">
+          {`{asd} –`} {validateBrackets("{asd}") ? "true" : "false"} <br />
+          {`{[(asd)]} –`} {validateBrackets("{[(asd)]}") ? "true" : "false"}
+          <br />
+          {`[{asd}] –`} {validateBrackets("[{asd}]") ? "true" : "false"} <br />
+          {`[(asd]) –`} {validateBrackets("[(asd])") ? "true" : "false"} <br />
+          {`{aaa[bbb(ccc)ddd]eee} –`}
+          {validateBrackets("{aaa[bbb(ccc)ddd]eee}") ? "true" : "false"}
+        </div>
+      </div>
     </div>
   );
 }
